@@ -53,7 +53,7 @@ void VideoAPI::setFrameProcessFunctionAs(void (*frameProcessCallback)(cv::Mat&, 
 
 bool VideoAPI::setVideoInput_FromCamera(){
     frame_num_now = 0;
-    delay_between_frames = 0;
+    delay_between_frames = 1000/24;
     capture.release();
     capture =  cv::VideoCapture(0);
     return capture.isOpened();
