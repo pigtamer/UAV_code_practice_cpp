@@ -1,0 +1,17 @@
+﻿生成启动时间为 2018/1/26 17:07:35。
+     1>项目“C:\Users\Misaki\Desktop\创新项目\QTGUIVideoTest1\QTGUIVideoTest1\QTGUIVideoTest1.vcxproj”在节点 2 上(Build 个目标)。
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(935,5): warning MSB8027: Two or more files with the name of moc_QTGUIVideoTest1.cpp will produce outputs to the same location. This can lead to an incorrect build result.  The files involved are GeneratedFiles\Debug\moc_QTGUIVideoTest1.cpp, GeneratedFiles\Release\moc_QTGUIVideoTest1.cpp.
+     1>ClCompile:
+         D:\work\visualstudio\VC\bin\x86_amd64\CL.exe /c /I.\GeneratedFiles /I. /ID:\work\qtforvs2013\5.8\msvc2013_64\include /I.\GeneratedFiles\Debug /ID:\work\qtforvs2013\5.8\msvc2013_64\include\QtCore /ID:\work\qtforvs2013\5.8\msvc2013_64\include\QtGui /ID:\work\qtforvs2013\5.8\msvc2013_64\include\QtWidgets /Zi /nologo /W1 /WX- /Od /D UNICODE /D WIN32 /D WIN64 /D QT_DLL /D QT_CORE_LIB /D QT_GUI_LIB /D QT_WIDGETS_LIB /Gm- /EHsc /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x64\Debug\\" /Fd"x64\Debug\vc120.pdb" /Gd /TP /errorReport:prompt QTGUIVideoTest1.cpp
+         QTGUIVideoTest1.cpp
+       Link:
+         D:\work\visualstudio\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Misaki\Desktop\创新项目\QTGUIVideoTest1\x64\Debug\\QTGUIVideoTest1.exe" /NOLOGO /LIBPATH:D:\work\qtforvs2013\5.8\msvc2013_64\lib qtmaind.lib Qt5Cored.lib Qt5Guid.lib Qt5Widgetsd.lib opencv_calib3d330d.lib opencv_core330d.lib opencv_dnn330d.lib opencv_features2d330d.lib opencv_flann330d.lib opencv_highgui330d.lib opencv_imgcodecs330d.lib opencv_imgproc330d.lib opencv_ml330d.lib opencv_objdetect330d.lib opencv_photo330d.lib opencv_shape330d.lib opencv_stitching330d.lib opencv_superres330d.lib opencv_video330d.lib opencv_videoio330d.lib opencv_videostab330d.lib opencv_calib3d330.lib opencv_core330.lib opencv_dnn330.lib opencv_features2d330.lib opencv_flann330.lib opencv_highgui330.lib opencv_imgcodecs330.lib opencv_imgproc330.lib opencv_ml330.lib opencv_objdetect330.lib opencv_photo330.lib opencv_shape330.lib opencv_stitching330.lib opencv_superres330.lib opencv_video330.lib opencv_videoio330.lib opencv_videostab330.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Misaki\Desktop\创新项目\QTGUIVideoTest1\x64\Debug\QTGUIVideoTest1.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Misaki\Desktop\创新项目\QTGUIVideoTest1\x64\Debug\QTGUIVideoTest1.lib" /MACHINE:X64 x64\Debug\moc_QTGUIVideoTest1.obj
+         x64\Debug\qrc_QTGUIVideoTest1.obj
+         x64\Debug\main.obj
+         x64\Debug\QTGUIVideoTest1.obj
+         QTGUIVideoTest1.vcxproj -> C:\Users\Misaki\Desktop\创新项目\QTGUIVideoTest1\x64\Debug\QTGUIVideoTest1.exe
+     1>已完成生成项目“C:\Users\Misaki\Desktop\创新项目\QTGUIVideoTest1\QTGUIVideoTest1\QTGUIVideoTest1.vcxproj”(Build 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:01.79
