@@ -71,6 +71,14 @@ class VideoAPI{
                 framewise_process = frameProcessCallback;
         }
 
+        bool setVideoInput_FromCamera(){
+            frame_num_now = 0;
+            delay_between_frames = 0;
+            capture.release();
+            capture =  cv::VideoCapture(0);
+            return capture.isOpened();
+        }
+
         bool setVideoInput_FromFile(std::string input_filename){
             frame_num_now = 0;
 
@@ -124,17 +132,28 @@ class VideoAPI{
                 
                 if (delay_between_frames >= 0 && cv::waitKey(delay_between_frames) >= 0)
                     terminateProcess();
-            }  
 
+                if (end_at_frame_num >= 0 && getFrameNumber() == end_at_frame_num)
+                    terminateProcess();
+            }  
         }
+
+        //end class: VideoAPI.
 };
 
 
 // an example function., canny video frames.
 void cannyit(cv::Mat& frame_in, cv::Mat& frame_out){
+    size_t chans = frame_in.channels();
+    cv::Mat im_in = frame_in;
+    if (chans > 1){
+        cv::cvtColor(frame_in, im_in, CV_BGR2GRAY);
+    }
     Canny(frame_in, frame_out, 100, 200);
 }
 
+
+// this is an example for canning a frame from file
 int main(){
     std::string DATASET_PATH = "D:/Proj/UAV/dataset/drones/Video_";
     std::string VIDEO_FORMAT = ".avi";
@@ -143,15 +162,16 @@ int main(){
     // using video processor type
     VideoAPI vidProcessor;
 
-    vidProcessor.setVideoInput_FromFile(DATASET_PATH + VIDEO_NUMBER + VIDEO_FORMAT);
+    vidProcessor.setVideoInput_FromCamera(); // from camera
+
+    // vidProcessor.setVideoInput_FromFile(DATASET_PATH + VIDEO_NUMBER + VIDEO_FORMAT);
+    // vidProcessor.setPlaybackSpeed(1000./vidProcessor.getFrameRate()); // "1000." eqs to double(1000.0). FPS is measured in ms. FPS VALUE CAN ONLY BE USED ON PROCESSING FILES READ IN !!!!!!
 
     // vidProcessor.displayInput("in"); // cannnot show in two windows. still debugging.
-    vidProcessor.displayOutput("out");
-
-    vidProcessor.setPlaybackSpeed(1000./vidProcessor.getFrameRate()); // "1000." eqs to double(1000.0). FPS is measured in ms.
-
+    vidProcessor.displayOutput("out");    
     vidProcessor.ifCallProcess(true); // call framewise_process for each frame.
     vidProcessor.setFrameProcessFunctionAs(cannyit);
     vidProcessor.run();
-
+    
+    
 }
