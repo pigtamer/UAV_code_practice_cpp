@@ -43,7 +43,7 @@ class VideoAPI{
             return capture.isOpened();
         }
 
-        bool isTerminates(){
+        bool isTerminated(){
             return FLAG_END_PROCESS;
         }
 
