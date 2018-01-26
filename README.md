@@ -18,7 +18,14 @@ cvl.cmd 是MSVC 命令行编译脚本
 cl /EHsc /I <OPENCV_INCLUDE_PATH> <OPENCV_LIBS_PATH> %1.cpp
 ```
 
-请按照需求修改, 且使用您的 MSVC x64 Native Tools 编译
+cplall.cmd 是联编整个项目的cpp源文件用的
+
+``` batch
+del *.obj *.exe
+cl /EHsc /I H:\opencv\build\include H:\opencv\build\x64\vc14\lib\*.lib ./*.cpp /Fetest
+```
+
+请按照需求修改包含和库目录, 且使用您的 MSVC x64 Native Tools 编译
 
 ## ROI定义
 一个无聊的练习，OpenCV 定义兴趣区域
