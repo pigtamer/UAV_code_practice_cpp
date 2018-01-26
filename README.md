@@ -11,7 +11,7 @@ utils.hpp
 cvl.cmd 是MSVC 命令行编译脚本
 
 ``` batch
-cl /EHsc /I <OPENCV_INCLUDE_PATH> <OPENCV_LIBS_PATH>
+cl /EHsc /I <OPENCV_INCLUDE_PATH> <OPENCV_LIBS_PATH> %1.cpp
 ```
 
 请按照需求修改, 且使用您的 MSVC x64 Native Tools 编译
