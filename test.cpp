@@ -24,8 +24,7 @@ int main(){
 
     // vidProcessor.setVideoInput_FromFile(DATASET_PATH + VIDEO_NUMBER + VIDEO_FORMAT);
     // vidProcessor.setPlaybackSpeed(1000./vidProcessor.getFrameRate()); // "1000." eqs to double(1000.0). FPS is measured in ms. FPS VALUE CAN ONLY BE USED ON PROCESSING FILES READ IN !!!!!!
-    
-    
+
     // vidProcessor.displayInput("in"); // cannnot show in two windows. still debugging.
     vidProcessor.displayOutput("out");    
     vidProcessor.ifCallProcess(true); // call framewise_process for each frame.
