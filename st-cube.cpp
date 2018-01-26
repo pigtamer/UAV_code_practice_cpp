@@ -3,18 +3,17 @@
 #include <vector>
 #include <opencv2/opencv.hpp>
 
-// #include "utils.hpp" //it would be defined later.
+#include "utils.hpp" //it would be defined later.
 using namespace std;
 using namespace cv;
 
 
-//This is an empty class, reserved for extracting st-cube in a video sequence.
-//stCube-wise processes in VideoAPI should be deisgned for this class.
-class SpatioTemporalCude{
-    private:
-        bool foo;
-    public:
-        void bar();
-        SpatioTemporalCude(){};
-        ~SpatioTemporalCude(){};    
-};
+
+int main(){
+    SpatioTemporalCude cube;
+    
+    for (size_t k = 1; k< 5; k++){
+        
+    }
+
+}

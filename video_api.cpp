@@ -4,20 +4,8 @@
 #include <opencv2/opencv.hpp>
 
 #include "utils.hpp" //it would be defined later.
-using namespace std;
+using namespace std;    
 using namespace cv;
-
-//This is an empty class, reserved for extracting st-cube in a video sequence.
-//stCube-wise processes in VideoAPI should be deisgned for this class.
-// class SpatioTemporalCude{
-//     private:
-//         bool foo;
-//     public:
-//         void bar();
-//         SpatioTemporalCude(){};
-//         ~SpatioTemporalCude(){};    
-// };
-
 
 bool VideoAPI::isOpened(){
     return capture.isOpened();
@@ -53,7 +41,7 @@ void VideoAPI::setFrameProcessFunctionAs(void (*frameProcessCallback)(cv::Mat&, 
 
 bool VideoAPI::setVideoInput_FromCamera(){
     frame_num_now = 0;
-    delay_between_frames = 0;
+    delay_between_frames = 1000/24;
     capture.release();
     capture =  cv::VideoCapture(0);
     return capture.isOpened();
