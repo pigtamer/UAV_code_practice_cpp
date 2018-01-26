@@ -13,11 +13,14 @@ using namespace cv;
 
 //This is an empty class, reserved for extracting st-cube in a video sequence.
 //stCube-wise processes in VideoAPI should be deisgned for this class.
+//unfinished
 class SpatioTemporalCude{
-    private:
-        bool foo;
+    private:    
+        std::vector<cv::Mat> cubeContainer;
+        cv::Mat* cubeContainer_array;
     public:
-        void bar();
+        int getSize();
+        int setCube();
         SpatioTemporalCude(){};
         ~SpatioTemporalCude(){};    
 };

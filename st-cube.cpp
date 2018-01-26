@@ -8,6 +8,12 @@ using namespace std;
 using namespace cv;
 
 
-// void SpatioTemporalCude::bar(){
-//     cout << "fuck" << " " << foo << endl;
-// }
+
+int main(){
+    SpatioTemporalCude cube;
+    
+    for (size_t k = 1; k< 5; k++){
+        
+    }
+
+}
