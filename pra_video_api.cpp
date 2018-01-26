@@ -3,20 +3,33 @@
 #include <vector>
 #include <opencv2/opencv.hpp>
 
+// #include "utils.hpp" //it would be defined later.
 using namespace std;
 using namespace cv;
+
+//This is an empty class, reserved for extracting st-cube in a video sequence.
+//stCube-wise processes in VideoAPI should be deisgned for this class.
+class SpatioTemporalCude{
+    private:
+        bool foo;
+    public:
+        void bar();
+        SpatioTemporalCude(){};
+        ~SpatioTemporalCude(){};    
+};
 
 class VideoAPI{
     private:
         cv::VideoCapture capture;
         
-        void (*process) (cv::Mat& frame_in, cv::Mat& frame_out);
+        void (*framewise_process) (cv::Mat& frame_in, cv::Mat& frame_out);
+
+        void (*stCube_process) (SpatioTemporalCude& stCube_in, cv::Rect targetArea);
 
         bool FLAG_CALLBACK;
 
         string NAME_WINDOW;
         
-
         int delay_between_frames;
 
         long frame_num_now;
@@ -50,12 +63,12 @@ class VideoAPI{
             FLAG_CALLBACK = FLAG;
         }
 
-        void end(){
+        void terminateProcess(){
             FLAG_END_PROCESS = true;
         }
 
         void setFrameProcessFunctionAs(void (*frameProcessCallback)(cv::Mat&, cv::Mat&)){
-                process = frameProcessCallback;
+                framewise_process = frameProcessCallback;
         }
 
         bool setVideoInput_FromFile(std::string input_filename){
@@ -100,7 +113,7 @@ class VideoAPI{
                     cv::imshow(NAME_WINDOW, frame_now);
 
                 if (FLAG_CALLBACK){
-                    process(frame_now, frame_out);
+                    framewise_process(frame_now, frame_out);
                     frame_num_now ++;
                 }else{
                     frame_out = frame_now;
@@ -110,7 +123,7 @@ class VideoAPI{
                     cv::imshow(NAME_WINDOW, frame_out);
                 
                 if (delay_between_frames >= 0 && cv::waitKey(delay_between_frames) >= 0)
-                    end();
+                    terminateProcess();
             }  
 
         }
@@ -129,6 +142,7 @@ int main(){
 
     // using video processor type
     VideoAPI vidProcessor;
+
     vidProcessor.setVideoInput_FromFile(DATASET_PATH + VIDEO_NUMBER + VIDEO_FORMAT);
 
     // vidProcessor.displayInput("in"); // cannnot show in two windows. still debugging.
@@ -136,7 +150,7 @@ int main(){
 
     vidProcessor.setPlaybackSpeed(1000./vidProcessor.getFrameRate()); // "1000." eqs to double(1000.0). FPS is measured in ms.
 
-    vidProcessor.ifCallProcess(true); // call process for each frame.
+    vidProcessor.ifCallProcess(true); // call framewise_process for each frame.
     vidProcessor.setFrameProcessFunctionAs(cannyit);
     vidProcessor.run();
 
