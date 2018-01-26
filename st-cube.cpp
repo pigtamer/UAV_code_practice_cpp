@@ -10,11 +10,3 @@ using namespace cv;
 
 //This is an empty class, reserved for extracting st-cube in a video sequence.
 //stCube-wise processes in VideoAPI should be deisgned for this class.
-class SpatioTemporalCude{
-    private:
-        bool foo;
-    public:
-        void bar();
-        SpatioTemporalCude(){};
-        ~SpatioTemporalCude(){};    
-};
