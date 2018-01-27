@@ -56,7 +56,7 @@
     ``` bash
     git remote add origin <URL>.git 
     ```
-    其中<URL> 是想要的git仓库的master主分支地址.
+    其中 <URL> 是想要的git仓库的master主分支地址.
 
 2. 查看
     要查看当前拥有的远程端, 使用
